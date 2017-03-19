@@ -1,0 +1,67 @@
+{\rtf1\ansi\ansicpg936\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;}
+{\colortbl;\red255\green255\blue255;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 1.
+\f1 \'c6\'f4\'b6\'af\'ca\'b1\'bc\'e4\
+\'c0\'e4\'c6\'f4\'b6\'af\'a3\'ba\'b3\'cc\'d0\'f2\'ca\'d7\'b4\'ce\'c6\'f4\'b6\'af\'a3\'ac\'d2\'b2\'be\'cd\'ca\'c7\'bd\'f8\'b3\'cc\'ca\'d7\'b4\'ce\'b4\'b4\'bd\'a8\'b2\'a2\'d5\'bc\'d3\'c3\'d7\'ca\'d4\'b4\'b5\'c4\'b9\'fd\'b3\'cc\
+\'c8\'c8\'c6\'f4\'b6\'af\'a3\'baapp\'cd\'a8\'b9\'fdhome\'bc\'fc\'bb\'f2back\'bc\'fc\'cd\'cb\'b5\'bd\'ba\'f3\'cc\'a8\'a3\'ac\'bd\'f8\'b3\'cc\'b2\'a2\'ce\'b4\'b1\'bb\'c9\'b1\'cb\'c0\'b5\'c4\'d7\'b4\'cc\'ac\
+\
+\'c0\'e4/\'c8\'c8\'c6\'f4\'b6\'afapp\'c3\'fc\'c1\'ee\
+adb shell am start -W -n package/activity\
+\
+\'cd\'a3\'d6\'b9app\'c3\'fc\'c1\'ee\'a3\'a8\'b9\'d8\'b1\'d5app\'a3\'ac\'c9\'b1\'cb\'c0\'bd\'f8\'b3\'cc\'a3\'a9\
+adb shell am force-stop package\
+\
+\'cd\'a3\'d6\'b9app\'a3\'a8\'bd\'abapp\'cd\'cb\'b5\'bd\'ba\'f3\'cc\'a8\'a3\'ac\'bd\'f8\'b3\'cc\'b2\'a2\'ce\'b4\'b1\'bb\'c9\'b1\'cb\'c0\'a3\'a9\
+adb shell input keyevent 3 (\'b5\'e3back\'bc\'fc\'cd\'cb\'b5\'bd\'ba\'f3\'cc\'a8)\
+\
+2.CPU\
+\'bb\'f1\'c8\'a1\'ca\'fd\'be\'dd\
+adb shell dumpsys cpuinfo | grep packagename\
+\
+3.\'c1\'f7\'c1\'bf\
+\'bb\'f1\'c8\'a1\'bd\'f8\'b3\'ccid\
+adb shell ps | grep packagename\
+\'bb\'f1\'c8\'a1\'bd\'f8\'b3\'ccid\'c1\'f7\'c1\'bf\
+add shell cat/proc/pid/net/dev\
+pid:\'bd\'f8\'b3\'ccid\
+\
+4.\'b5\'e7\'c1\'bf\
+\'bb\'f1\'c8\'a1\'b5\'e7\'c1\'bf\
+adb shell dumpsys battery\
+\'c7\'d0\'bb\'bb\'b7\'c7\'b3\'e4\'b5\'e7\'d7\'b4\'cc\'ac\
+adb shell dumpsys battery set status 1\
+status 2\'ce\'aa\'b3\'e4\'b5\'e7\'d7\'b4\'cc\'ac\'a3\'ac\'c6\'e4\'d3\'e0\'ca\'fd\'d7\'d6\'b6\'bc\'ca\'c7\'b7\'c7\'b3\'e4\'b5\'e7\'d7\'b4\'cc\'ac\
+\
+5.\'c4\'da\'b4\'e6\
+\'bb\'f1\'c8\'a1\'c4\'da\'b4\'e6\
+adb shell top\
+VSS - Virtual Set Size \'d0\'e9\'c4\'e2\'ba\'c4\'d3\'c3\'c4\'da\'b4\'e6\
+RSS - Resident Set Size \'ca\'b5\'bc\'ca\'ca\'b9\'d3\'c3\'ce\'ef\'c0\'ed\'c4\'da\'b4\'e6\
+\
+adb shell top -d 1\
+-d:\'c3\'fc\'c1\'ee\'cb\'a2\'d0\'c2\'b5\'c4\'c6\'b5\'c2\'ca\
+\
+\'bd\'ab\'d6\'b4\'d0\'d0\'bd\'e1\'b9\'fb\'b1\'a3\'b4\'e6\'d4\'da\'ce\'c4\'bc\'fe\'d6\'d0\
+adb shell top -d 1 >\'ce\'c4\'bc\'fe\'c3\'fb\
+\
+\'d6\'d5\'d6\'b9\'bb\'f1\'c8\'a1\'c4\'da\'b4\'e6\'d0\'c5\'cf\'a2\'c3\'fc\'c1\'ee\
+command\'a3\'abz\
+\
+\'b2\'e9\'bf\'b4\'b1\'a3\'b4\'e6\'d6\'c1\'ce\'c4\'bc\'fe\'b5\'c4\'c4\'da\'b4\'e6\'d0\'c5\'cf\'a2\
+cat \'ce\'c4\'bc\'fe\'c3\'fb\
+\
+\'b9\'fd\'c2\'cb\'c4\'da\'b4\'e6\'d0\'c5\'cf\'a2\
+cat  \'ce\'c4\'bc\'fe\'c3\'fb | grep \'b0\'fc\'c3\'fb\'a3\'a8\'b9\'fd\'c2\'cb\'b5\'c4\'b9\'d8\'bc\'fc\'b4\'ca\'a3\'a9\
+\
+6.FPS&\'b9\'fd\'b6\'c8\'e4\'d6\'c8\'be\
+FPS : frames per second \'c3\'bf\'c3\'eb\'b5\'c4\'d6\'a1\'ca\'fd\
+\'d7\'a2\'a3\'ba\'d4\'daandroid\'d6\'d0\'d3\'c3\'c0\'b4\'ba\'e2\'c1\'bf\'c1\'f7\'b3\'a9\'b6\'c8\'b5\'c4\'d2\'bb\'b8\'f6\'d6\'b8\'b1\'ea\'a3\'ac\'d4\'daandroid\'d6\'d0\'b6\'a8\'d2\'e5\'c3\'bf\'c3\'eb\'d6\'d360\'d6\'a1\'be\'cd\'c8\'cf\'ce\'aa\'ba\'dc\'c1\'f7\'b3\'a9\'a3\'ac\'d2\'b2\'be\'cd\'ca\'c716\'ba\'c1\'c3\'eb\'d2\'bb\'d6\'a1\'a3\'ac\'c8\'e7\'b9\'fb\'d2\'bb\'d6\'a1\'b5\'c4\'d6\'b4\'d0\'d0\'ca\'b1\'bc\'e4\'b3\'ac\'b9\'fd16\'ba\'c1\'c3\'eb\'be\'cd\'bf\'c9\'d2\'d4\'c8\'cf\'ce\'aa\'d3\'d0\'bf\'a8\'b6\'d9\'b5\'c4\'cf\'d6\'cf\'f3\
+\'b9\'fd\'b6\'c8\'e4\'d6\'c8\'be\'a3\'ba\'c3\'e8\'ca\'f6\'b5\'c4\'ca\'c7\'c6\'c1\'c4\'bb\'c9\'cf\'b5\'c4\'c4\'b3\'b8\'f6\'cf\'f1\'cb\'d8\'d4\'da\'cd\'ac\'d2\'bb\'d6\'a1\'b5\'c4\'ca\'b1\'bc\'e4\'c4\'da\'b1\'bb\'bb\'e6\'d6\'c6\'c1\'cb\'b6\'e0\'b4\'ce\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 FPS\'a3\'ba\'c9\'e8\'d6\'c3\'a3\'ad\'bf\'aa\'b7\'a2\'d5\'df\'d1\'a1\'cf\'ee\'a3\'adGPU\'b3\'ca\'cf\'d6\'c4\'a3\'ca\'bd\'b7\'d6\'ce\'f6\'a3\'ad\'d4\'da\'c6\'c1\'c4\'bb\'c9\'cf\'cf\'d4\'ca\'be\'ce\'aa\'cc\'f5\'d0\'ce\'cd\'bc\
+\'b9\'fd\'b6\'c8\'e4\'d6\'c8\'be\'a3\'ba\'c9\'e8\'d6\'c3\'a3\'ad\'bf\'aa\'b7\'a2\'d5\'df\'d1\'a1\'cf\'ee\'a3\'ad\'cf\'d4\'ca\'beGPU\'b9\'fd\'b6\'c8\'bb\'e6\'d6\'c6}
